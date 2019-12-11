@@ -45,3 +45,13 @@ atlanta.set_like()
 
 print(f'Nome: {vingadores.nome} - Likes: {vingadores.likes}')
 print(f'Nome: {atlanta.nome} - Likes: {atlanta.likes}')
+
+
+filmes_series = [vingadores , atlanta]
+#Polimorfismo facilidade em apresentação, ou em acessar classes com mesma herança
+#++ If em uma linha
+for programa in filmes_series:
+    detalhes = programa.duracao if hasattr(programa,'duracao') else programa.temporadas
+    print(f'Nome: {programa.nome} - Tempo {detalhes} - Likes: {programa.likes}')
+
+
