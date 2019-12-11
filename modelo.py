@@ -19,6 +19,11 @@ class Programa:
     def nome(self, novo_nome):
         self._nome = novo_nome.title()
 
+    # def imprime(self):
+    #     print(f'Nome: {self.nome} Ano {self.ano} - Likes: {self.likes}')
+
+    def __str__(self):
+        return f'Nome: {self.nome} Ano {self.ano} - Likes: {self.likes}'
 
 class Filme(Programa):
 
@@ -26,6 +31,11 @@ class Filme(Programa):
         super().__init__(nome, ano)
         self.duracao = duracao
 
+    # def imprime(self):
+    #     print(f'Nome: {self.nome} Ano {self.ano} - Duracao {self.duracao} min - Likes: {self.likes}')
+
+    def __str__(self):
+        return f'Nome: {self.nome} Ano {self.ano} - Duracao {self.duracao} min - Likes: {self.likes}'
 
 class Serie(Programa):
 
@@ -33,9 +43,15 @@ class Serie(Programa):
         super().__init__(nome, ano)
         self.temporadas = temporadas
 
+    # def imprime(self):
+    #     print(f'Nome: {self.nome} Ano {self.ano} - Duracao {self.temporadas} temporadas - Likes: {self.likes}')
+
+    def __str__(self):
+        return f'Nome: {self.nome} Ano {self.ano} - Duracao {self.temporadas} temporadas - Likes: {self.likes}'
 
 vingadores = Filme('vingadores - guerra infinita', 2018, 160)
 atlanta = Serie('atlanta', 2018, 2)
+
 vingadores.set_like()
 vingadores.set_like()
 vingadores.set_like()
@@ -43,15 +59,14 @@ vingadores.set_like()
 atlanta.set_like()
 atlanta.set_like()
 
-print(f'Nome: {vingadores.nome} - Likes: {vingadores.likes}')
-print(f'Nome: {atlanta.nome} - Likes: {atlanta.likes}')
+#print(f'Nome: {vingadores.nome} - Likes: {vingadores.likes}')
+#print(f'Nome: {atlanta.nome} - Likes: {atlanta.likes}')
 
 
 filmes_series = [vingadores , atlanta]
-#Polimorfismo facilidade em apresentação, ou em acessar classes com mesma herança
-#++ If em uma linha
+#Polimorfismo (utilizar uma função unica sem olhar de quem ele esta executando o imprime)
 for programa in filmes_series:
-    detalhes = programa.duracao if hasattr(programa,'duracao') else programa.temporadas
-    print(f'Nome: {programa.nome} - Tempo {detalhes} - Likes: {programa.likes}')
+    # Deixando o print mais PYTONICO
+    print(programa)
 
 
