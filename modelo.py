@@ -49,13 +49,31 @@ class Serie(Programa):
     def __str__(self):
         return f'Nome: {self.nome} Ano {self.ano} - Duracao {self.temporadas} temporadas - Likes: {self.likes}'
 
+class Playlist(list):
+    def __init__(self, nome, programas):
+        self.nome = nome
+        super().__init__(programas)
+
 vingadores = Filme('vingadores - guerra infinita', 2018, 160)
 atlanta = Serie('atlanta', 2018, 2)
+tmep = Filme('todo mundo em panico', 1999, 100)
+demolidor = Serie('Demolidor', 2016, 2)
 
+tmep.set_like()
+tmep.set_like()
+tmep.set_like()
+tmep.set_like()
+demolidor.set_like()
+demolidor.set_like()
+demolidor.set_like()
 vingadores.set_like()
 vingadores.set_like()
 vingadores.set_like()
-
+vingadores.set_like()
+vingadores.set_like()
+atlanta.set_like()
+atlanta.set_like()
+atlanta.set_like()
 atlanta.set_like()
 atlanta.set_like()
 
@@ -63,10 +81,13 @@ atlanta.set_like()
 #print(f'Nome: {atlanta.nome} - Likes: {atlanta.likes}')
 
 
-filmes_series = [vingadores , atlanta]
-#Polimorfismo (utilizar uma função unica sem olhar de quem ele esta executando o imprime)
-for programa in filmes_series:
-    # Deixando o print mais PYTONICO
+filmes_series = [vingadores, atlanta, demolidor, tmep]
+
+playlist_fim_de_semana = Playlist('fim de semana',filmes_series)
+
+print(f'Tamanho do Playlist: {len(playlist_fim_de_semana)}')
+
+for programa in playlist_fim_de_semana:
     print(programa)
 
-
+print(f'Tá ou não tá? {demolidor in playlist_fim_de_semana}')
