@@ -100,3 +100,4 @@ for programa in playlist_fim_de_semana.listagem:
 
 # print(f'Tá ou não tá? {demolidor in playlist_fim_de_semana}')
 
+
